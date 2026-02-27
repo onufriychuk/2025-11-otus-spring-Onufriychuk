@@ -2,3 +2,7 @@
 Is there life on Mars?;Science doesn't know this yet%true|Certainly. The red UFO is from Mars. And green is from Venus%false|Absolutely not%false
 How should resources be loaded form jar in Java?;ClassLoader#geResourceAsStream or ClassPathResource#getInputStream%true|ClassLoader#geResource#getFile + FileReader%false|Wingardium Leviosa%false
 Which option is a good way to handle the exception?;@SneakyThrow%false|e.printStackTrace()%false|Rethrow with wrapping in business exception (for example, QuestionReadException)%true|Ignoring exception%false
+What is the contract between equals() and hashCode()?;If two objects are equal, they must have equal hash codes%true|If two objects have equal hash codes, they must be equal%false|hashCode() must return a unique integer for each object%false|equals() must be consistent with compareTo()%false
+How is String stored in memory in modern Java (since Java 9)?;As a char array%false|As a byte array with a flag for encoding%true|As a list of characters%false|As a StringBuilder%false
+Which method creates an immutable list in Java 9+?;List.of()%true|Collections.unmodifiableList()%false|Arrays.asList()%false|new ArrayList<>()%false
+What does the 'volatile' keyword guarantee in Java?;Visibility and happens-before%true|Atomicity%false|Mutual exclusion%false|Thread safety%false
