@@ -1,6 +1,7 @@
 package ru.otus.hw.service;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.collections4.CollectionUtils;
 import ru.otus.hw.dao.QuestionDao;
 import ru.otus.hw.domain.Answer;
 import ru.otus.hw.domain.Question;
@@ -37,7 +38,7 @@ public class TestServiceImpl implements TestService {
     private void printQuestion(int number, Question question) {
         ioService.printFormattedLine("Question %d: %s", number, question.text());
         List<Answer> answers = question.answers();
-        if (answers == null || answers.isEmpty()) {
+        if (CollectionUtils.isEmpty(answers)) {
             ioService.printLine("  No answer options available.");
             return;
         }
