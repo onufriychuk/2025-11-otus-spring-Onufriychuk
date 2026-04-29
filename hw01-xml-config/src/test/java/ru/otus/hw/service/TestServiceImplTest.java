@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import ru.otus.hw.dao.QuestionDao;
@@ -12,7 +13,10 @@ import ru.otus.hw.domain.Question;
 
 import java.util.List;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.inOrder;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class TestServiceImplTest {
@@ -21,13 +25,9 @@ class TestServiceImplTest {
 
     @Mock
     private QuestionDao questionDao;
-
+    @InjectMocks
     private TestServiceImpl testService;
 
-    @BeforeEach
-    void setUp() {
-        testService = new TestServiceImpl(ioService, questionDao);
-    }
     @Test
     void executeTest_ShouldPrintHeaderAndNoQuestionsMessage_WhenDaoReturnsEmptyList() {
         when(questionDao.findAll()).thenReturn(List.of());
